@@ -4,18 +4,85 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>To Do List</title>
+   <style>
+      body{
+         background-color: rgb(166, 224, 235);
+      }
+      .container-input{
+         border-radius: 5px;
+         background-color: rgb(36, 166, 189);
+         padding: 1em;
+         padding-bottom: 3em;
+         width: auto;
+         height: fit-content;
+         margin: 2em 0.5em 1em 1em;
+      }
+      .container-input h2 {
+         margin: 0;
+         color: white;
+      }
+      .container-input p {
+         font-style: italic; 
+         color: rgba(255, 255, 255, 0.815);
+      }
+      .container-input form{
+         display: inline-block;
+      }
+      .container-input input{
+         background-color: rgb(166, 224, 235);
+         color: rgb(8, 34, 39);
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+      }
+      .input-btn{
+         background-color: rgb(166, 224, 235);
+         color: rgb(8, 34, 39);
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+      .input-btn:hover {
+         background-color: rgb(203, 228, 233);
+      }
+
+      .container-list{
+         border-radius: 5px;
+         background-color: rgb(36, 166, 189);
+         padding: 1em;
+         width: auto;
+         height: fit-content;
+         margin: 0.5em 0.5em 1em 1em;
+      }
+      .container-list ol {
+         margin: 20px;
+      }
+      .container-list ol li {
+         margin: 5px 0;
+         padding: 3px;
+         transition: all 0.5s ease-out;
+      }
+      
+      
+   </style>
+
 </head>
 <body>
-   <h2></h2>
-   <ul>
-       <li>
-         <a href="basic.html" >Basic HTML</a>
-      </li>
-       <li>
-         <a href="table.html">Table</a>
-       </li>
-       <li>List Item 3</li>
-   </ul>
+   <div class="container-input">
+      <h2>My To Do List</h2>
+      <p>Double to mark as done</p>
+      <form action="">
+         <input type="text" name="todoinput" id="todoinput">
+         <button class="input-btn">Add</button>
+      </form>
+   </div>
+
+   <div class="container-list">
+
+   </div>
 </body>
 </html>
