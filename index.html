@@ -5,40 +5,47 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>To Do List</title>
+   <link rel="icon" type="image/png" href="to-do-list.png">
    <style>
       body{
-         background-color: rgb(166, 224, 235);
+         color: rgb(20, 91, 104);;
+         display: flex;
+         justify-content: center;
+         background: rgb(0,65,112);
+         background: linear-gradient(90deg, 
+                     rgba(0,65,112,1) 
+                     0%, rgba(0,101,150,1) 15%, 
+                     rgba(0,160,193,1) 50%, 
+                     rgba(0,101,150,1) 85%, 
+                     rgba(0,65,112,1) 100%);
       }
-      .container-input{
-         border-radius: 5px;
-         background-color: rgb(36, 166, 189);
-         padding: 1em;
-         padding-bottom: 3em;
-         width: auto;
-         height: fit-content;
-         margin: 2em 0.5em 1em 1em;
+      .container {      
+         margin: 2em 1em;
+         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+         transition: 0.3s;
+         min-width: 50%;
+         border-radius: 5px; 
+         padding: 16px;
+         background-color: #fff;
       }
-      .container-input h2 {
-         margin: 0;
-         color: white;
-      }
-      .container-input p {
-         font-style: italic; 
-         color: rgba(255, 255, 255, 0.815);
-      }
-      .container-input form{
-         display: inline-block;
-      }
-      .container-input input{
-         background-color: rgb(166, 224, 235);
+      input{
+         box-sizing: border-box;
+         border: 3px solid rgb(166, 224, 235);
          color: rgb(8, 34, 39);
-         border: none;
-         padding: 10px 20px;
+         padding: 7px 20px;
          border-radius: 5px;
+         max-width: 84%;
+         width: auto;
+         min-width: 84%;
       }
       #input-btn{
-         background-color: rgb(166, 224, 235);
-         color: rgb(8, 34, 39);
+         max-width: 15%;
+         min-width: 15%;
+      }
+
+      button{
+         background-color: rgb(36, 166, 189);
+         color: white;
          border: none;
          padding: 10px 20px;
          border-radius: 5px;
@@ -46,26 +53,24 @@
          cursor: pointer;
          transition: background-color 0.3s ease;
       }
-      #input-btn:hover {
-         background-color: rgb(203, 228, 233);
+      .container h2{
+         margin: 0;
+         text-align: center;
       }
-
+      .container h4{
+         margin-bottom: 0.5em;
+      }
+      .input-box{
+         width: 100%;
+         text-align: center;
+         justify-content: space-evenly;
+      }
       .control-btn{
-         margin: 0.5em 0.5em 1em 1em;
+         margin: 0;
          text-align: center;
          display: flex;
          flex-wrap: wrap;
-         justify-content: space-around;
-      }
-      .control-btn button{
-         background-color: rgb(36, 166, 189);
-         color: white;
-         border: none;
-         padding: 10px 20px;
-         border-radius: 5px;
-         font-weight: bold;
-         cursor: pointer;
-         transition: background-color 0.3s ease;
+         justify-content: space-between;
       }
       #clear-complete-btn{
          background-color: burlywood;
@@ -76,7 +81,6 @@
       #save-btn{
          background-color: rgb(86, 211, 134);
       }
-
       #clear-complete-btn:hover{
          background-color: rgb(214, 202, 186);
       }
@@ -86,27 +90,9 @@
       #save-btn:hover{
          background-color: rgb(144, 206, 168);
       }
-
-      .container-list .completed {
-         text-decoration: line-through;
-         color: #666;
-      }  
-
-      .container-list{
-         border-radius: 5px;
-         background-color: rgb(36, 166, 189);
-         padding: 1em;
-         width: auto;
-         height: fit-content;
-         margin: 0.5em 0.5em 1em 1em;
-      }
-      .container-list ol {
-         border-radius: 5px;
-         margin: 0.5em;
-         background-color: rgb(166, 224, 235);
-      }
-      .container-list ol li {
+      li {
          margin: 5px 0;
+         margin-left: -20px;
          padding: 3px;
          -webkit-user-select: none;
          -moz-user-select: none;
@@ -115,29 +101,49 @@
          -webkit-transition: all 0.5s ease-out;
          transition: all 0.5s ease-out;
       }
-            
-   </style>
-
+      .completed {
+         text-decoration: line-through;
+         color: #666;
+      }
+   </style>       
 </head>
+
 <body>
-   <div class="container-input">
+   <div class="container" style="height: 100%;">
       <h2>My To Do List</h2>
-      <p>Double to mark as done</p>
-      <form onsubmit='return false'>
-         <input type="text" id="todo-input">
-         <button type="button" id="input-btn">Add</button>
-      </form>
-   </div>
-
-   <div class="control-btn">
-      <button id="clear-complete-btn" onclick="clearItem()">Clear Complete</button>
-      <button id="empty-btn" onclick="emptyList()">Empty List</button>
-      <button id="save-btn" onclick="saveList()">Save List</button>
-   </div>
-
-   <div class="container-list">
-      <ol id="todo-list">
+      <hr style="margin-bottom: 2em;">
+      <h4>Write the List</h4>
+      
+      <div class="input-box">         
+         <form onsubmit='return false'>
+            <input type="text" id="todo-input">
+            <button type="button" id="input-btn">Add</button>
+         </form>         
+      </div>
+      <div>
+         <br>
+         <div class="control-btn">
+            <button id="clear-complete-btn" onclick="clearItem()">Clear Complete</button>
+            <button id="empty-btn" onclick="emptyList()">Empty List</button>
+            <button id="save-btn" onclick="saveList()">Save List</button>
+         </div>
+      </div>
+      <hr>
+      <div class="input-list">
+         
+         <h4>Things To Do</h4>
+         <em>Double click to mark as done</em>
+         <hr>
+         <ul id="list">
+   
+         </ul>
+      </div>
    </div>
    <script src="script.js"></script>
+   
+   <!--<a href="https://www.flaticon.com/free-icons/to-do-list" 
+      title="to do list icons">
+      To do list icons created by Freepik - Flaticon
+   </a>-->
 </body>
 </html>

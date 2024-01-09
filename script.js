@@ -2,7 +2,7 @@ var addbutton = document.getElementById("input-btn");
 addbutton.addEventListener("click", addToDoItem);
 
 var toDoInput = document.getElementById("todo-input");
-var toDoList = document.getElementById("todo-list")
+var toDoList = document.getElementById("list")
 
 function newToDoItem(itemText, completed) {
    var toDoItem = document.createElement("li");
