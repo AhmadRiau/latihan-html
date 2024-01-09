@@ -36,7 +36,7 @@
          padding: 10px 20px;
          border-radius: 5px;
       }
-      .input-btn{
+      #input-btn{
          background-color: rgb(166, 224, 235);
          color: rgb(8, 34, 39);
          border: none;
@@ -46,9 +46,51 @@
          cursor: pointer;
          transition: background-color 0.3s ease;
       }
-      .input-btn:hover {
+      #input-btn:hover {
          background-color: rgb(203, 228, 233);
       }
+
+      .control-btn{
+         margin: 0.5em 0.5em 1em 1em;
+         text-align: center;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-around;
+      }
+      .control-btn button{
+         background-color: rgb(36, 166, 189);
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+      #clear-complete-btn{
+         background-color: burlywood;
+      } 
+      #empty-btn{
+         background-color: crimson;
+      } 
+      #save-btn{
+         background-color: rgb(86, 211, 134);
+      }
+
+      #clear-complete-btn:hover{
+         background-color: rgb(214, 202, 186);
+      }
+      #empty-btn:hover{
+         background-color: rgb(208, 86, 86);
+      }
+      #save-btn:hover{
+         background-color: rgb(144, 206, 168);
+      }
+
+      .container-list .completed {
+         text-decoration: line-through;
+         color: #666;
+      }  
 
       .container-list{
          border-radius: 5px;
@@ -59,15 +101,21 @@
          margin: 0.5em 0.5em 1em 1em;
       }
       .container-list ol {
-         margin: 20px;
+         border-radius: 5px;
+         margin: 0.5em;
+         background-color: rgb(166, 224, 235);
       }
       .container-list ol li {
          margin: 5px 0;
          padding: 3px;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+         -webkit-transition: all 0.5s ease-out;
          transition: all 0.5s ease-out;
       }
-      
-      
+            
    </style>
 
 </head>
@@ -75,14 +123,21 @@
    <div class="container-input">
       <h2>My To Do List</h2>
       <p>Double to mark as done</p>
-      <form action="">
-         <input type="text" name="todoinput" id="todoinput">
-         <button class="input-btn">Add</button>
+      <form onsubmit='return false'>
+         <input type="text" id="todo-input">
+         <button type="button" id="input-btn">Add</button>
       </form>
    </div>
 
-   <div class="container-list">
-
+   <div class="control-btn">
+      <button id="clear-complete-btn" onclick="clearItem()">Clear Complete</button>
+      <button id="empty-btn" onclick="emptyList()">Empty List</button>
+      <button id="save-btn" onclick="saveList()">Save List</button>
    </div>
+
+   <div class="container-list">
+      <ol id="todo-list">
+   </div>
+   <script src="script.js"></script>
 </body>
 </html>
