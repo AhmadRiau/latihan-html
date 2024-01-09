@@ -45,4 +45,35 @@ function emptyList() {
    }
 }
 
+function saveList() {
+   var toDos = [];
+
+   for (var i = 0; i < toDoList.children.length; i++) {
+       var toDo = toDoList.children.item(i);
+
+       var toDoInfo = {
+           "task": toDo.innerText,
+           "completed": toDo.classList.contains("completed")
+       };
+
+       toDos.push(toDoInfo);
+
+   }
+
+   localStorage.setItem("toDos", JSON.stringify(toDos));
+   alert("List Save")
+}
+
+function loadList() {
+   if (localStorage.getItem("toDos") != null) {
+       var toDos = JSON.parse(localStorage.getItem("toDos"));
+
+       for (var i = 0; i < toDos.length; i++) {
+           var toDo = toDos[i];
+           newToDoItem(toDo.task, toDo.completed);
+       }
+   }
+}
+
+loadList();
 
